@@ -1,0 +1,386 @@
+/* Problem Difficulty Categories */
+.category-very-easy,
+.nav-link.active.category-very-easy {
+  background-color: rgba(0, 191, 255, 0.1);
+  border-left: 4px solid deepskyblue;
+}
+
+.category-easy,
+.nav-link.active.category-easy {
+  background-color: rgba(144, 238, 144, 0.1);
+  border-left: 4px solid lightgreen;
+}
+
+.category-medium,
+.nav-link.active.category-medium {
+  background-color: rgba(255, 255, 0, 0.1);
+  border-left: 4px solid gold;
+}
+
+.category-hard,
+.nav-link.active.category-hard {
+  background-color: rgba(255, 99, 71, 0.1);
+  border-left: 4px solid lightcoral;
+}
+
+/* Difficulty Badges */
+.category-badge-very-easy {
+  background-color: deepskyblue;
+  color: white;
+}
+
+.category-badge-easy {
+  background-color: lightgreen;
+  color: #333;
+}
+
+.category-badge-medium {
+  background-color: gold;
+  color: #333;
+}
+
+.category-badge-hard {
+  background-color: lightcoral;
+  color: white;
+}
+
+.difficulty-header {
+  padding: 8px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+.category-section {
+  margin-bottom: 24px;
+}
+
+.category-very-easy .difficulty-header {
+  background-color: rgba(0, 191, 255, 0.2);
+  color: #0078a8;
+}
+
+.category-easy .difficulty-header {
+  background-color: rgba(144, 238, 144, 0.2);
+  color: #2e8b57;
+}
+
+.category-medium .difficulty-header {
+  background-color: rgba(255, 255, 0, 0.2);
+  color: #b8860b;
+}
+
+.category-hard .difficulty-header {
+  background-color: rgba(255, 99, 71, 0.2);
+  color: #cd5c5c;
+}
+
+/* Problem list table styling */
+.problem-list .table tr td {
+  vertical-align: middle;
+  color: #333;
+}
+
+.problem-list .table tr:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Improved color for difficulty levels in the table */
+.problem-list .table tr.category-very-easy td {
+  color: #0078a8;
+}
+
+.problem-list .table tr.category-easy td {
+  color: #2e8b57;
+}
+
+.problem-list .table tr.category-medium td {
+  color: #b8860b;
+}
+
+.problem-list .table tr.category-hard td {
+  color: #cd5c5c;
+}
+
+/* Problem Stats card */
+.problem-stats-card {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Tab navigation styling */
+.nav-tabs .nav-link {
+  border-radius: 4px 4px 0 0;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+}
+
+.nav-tabs .nav-link:not(.active):hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Search container */
+.search-container {
+  width: 300px;
+}
+
+/* ===== Enhanced Landing Page Styles ===== */
+
+/* Hero Section */
+.landing-page .hero-section {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+}
+
+.landing-page .hero-section h1 {
+  color: #212529;
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.landing-page .hero-section .lead {
+  color: #495057;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Hero image container */
+.landing-page .hero-image-container {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Feature Cards */
+.landing-page .features-section {
+  padding: 2rem 0 3rem;
+}
+
+.landing-page .features-section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  color: #333;
+  font-size: 2.2rem;
+}
+
+.landing-page .feature-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(74, 111, 220, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: #4a6fdc;
+}
+
+.landing-page .card {
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  height: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.landing-page .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.landing-page .card-body {
+  padding: 2rem;
+}
+
+.landing-page .card-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: #2d2d2d;
+}
+
+.landing-page .card-text {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* List items styling */
+.landing-page .list-unstyled li {
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 1.8rem;
+  color: #333;
+}
+
+.landing-page .list-unstyled li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* CTA Section */
+.landing-page .cta-section {
+  background: #f8f9fa;
+  border-left: 5px solid #4a6fdc;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  margin: 4rem 0 2rem;
+  text-align: center;
+}
+
+.landing-page .cta-section h2 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.landing-page .cta-section .lead {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+/* Button Styles */
+.landing-page .btn {
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.landing-page .btn-primary {
+  background: linear-gradient(135deg, #4a6fdc 0%, #2e4fb0 100%);
+  border: none;
+  box-shadow: 0 5px 15px rgba(74, 111, 220, 0.3);
+}
+
+.landing-page .btn-primary:hover {
+  background: linear-gradient(135deg, #5a7fe3 0%, #3e60c5 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(74, 111, 220, 0.4);
+}
+
+.landing-page .btn-light {
+  background: white;
+  color: #2e4fb0;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.landing-page .btn-light:hover {
+  background: #f8f9fa;
+  color: #2e4fb0;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Access Restricted Screen */
+.access-restricted {
+  max-width: 600px;
+  margin: 3rem auto;
+}
+
+.access-restricted .card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.access-restricted .card-header {
+  background: linear-gradient(135deg, #ff7676 0%, #f54ea2 100%);
+  color: white;
+  padding: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.access-restricted .card-body {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.access-restricted h3 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.access-restricted p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.access-restricted .icon-container {
+  background: rgba(245, 78, 162, 0.1);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f54ea2;
+  font-size: 2.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .landing-page .hero-section {
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+  
+  .landing-page .hero-section .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .landing-page .hero-image-container {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .landing-page .hero-section h1 {
+    font-size: 2.2rem;
+  }
+  
+  .landing-page .feature-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .landing-page .card-body {
+    padding: 1.5rem;
+  }
+  
+  .landing-page .features-section h2,
+  .landing-page .cta-section h2 {
+    font-size: 1.8rem;
+  }
+} 

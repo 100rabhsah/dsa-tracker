@@ -1,0 +1,7 @@
+Problem Category,Problem Name,Problem Link,Status,Notes
+Very Easy: Light Blue,Test Problem 1,https://example.com/problem1,Not Started,This is a test problem
+Easy: Green,Test Problem 2,https://example.com/problem2,Review,Need to check time complexity
+Medium: Yellow,Test Problem 3,https://example.com/problem3,Completed,Solved using dynamic programming
+Hard: Light Red,Test Problem 4,https://example.com/problem4,Not Started,Looks challenging
+Very Easy: Light Blue,Test Problem 5,https://example.com/problem5,Completed,Simple implementation
+Medium: Yellow,Test Problem 6,https://example.com/problem6,Review,Check edge cases 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { getProblems } from '../utils/firebase';
+import { getProblems, getUserProblemProgress, saveUserProblemProgress } from '../utils/firebase';
 import { auth } from '../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,16 +25,51 @@ const ProblemList = () => {
     
     setLoading(true);
     try {
-      // Always get the latest data from Firebase
-      const problemData = await getProblems();
+      // Get the master list of problems from Firebase
+      const masterProblems = await getProblems();
       
-      if (problemData && problemData.length > 0) {
-        // Set the problems directly from Firebase
-        setProblems(problemData);
+      if (masterProblems && masterProblems.length > 0) {
+        // Get user's progress to sync status
+        const userProgress = await getUserProblemProgress(user.uid);
         
-        // Update the lastUpdated timestamp for future reference
-        if (problemData.some(p => p.lastUpdated)) {
-          const latestTimestamp = problemData
+        if (userProgress && userProgress.length > 0) {
+          // Merge user progress with master problems
+          const mergedProblems = masterProblems.map(masterProblem => {
+            // Look for matching problem in user progress
+            const userProblem = userProgress.find(p => p.id === masterProblem.id);
+            
+            if (userProblem) {
+              // Use master problem properties but keep user's status and notes
+              return {
+                ...masterProblem,
+                status: userProblem.status || 'Not Started',
+                notes: userProblem.notes || ''
+              };
+            }
+            
+            // If user doesn't have this problem, use default status
+            return {
+              ...masterProblem,
+              status: 'Not Started',
+              notes: ''
+            };
+          });
+          
+          setProblems(mergedProblems);
+        } else {
+          // No user progress yet, use master problems with default status
+          const problemsWithDefaultStatus = masterProblems.map(problem => ({
+            ...problem,
+            status: 'Not Started',
+            notes: ''
+          }));
+          
+          setProblems(problemsWithDefaultStatus);
+        }
+        
+        // Update the lastUpdated timestamp
+        if (masterProblems.some(p => p.lastUpdated)) {
+          const latestTimestamp = masterProblems
             .filter(p => p.lastUpdated)
             .map(p => new Date(p.lastUpdated))
             .reduce((latest, current) => current > latest ? current : latest, new Date(0));
@@ -57,7 +92,6 @@ const ProblemList = () => {
     if (!userLoading) {
       fetchProblems();
     }
-    // Remove polling mechanism - only fetch on initial mount
   }, [user, userLoading]);
 
   // Organize problems by difficulty
@@ -94,6 +128,25 @@ const ProblemList = () => {
       setFilteredProblems(categorized);
     }
   }, [problems, searchTerm]);
+
+  // Handler for updating problem status
+  const handleStatusUpdate = (problemId, newStatus) => {
+    // Update the problem in state
+    const updatedProblems = problems.map(problem => {
+      if (problem.id === problemId) {
+        return { ...problem, status: newStatus };
+      }
+      return problem;
+    });
+    
+    // Update state
+    setProblems(updatedProblems);
+    
+    // Save to Firebase
+    if (user) {
+      saveUserProblemProgress(user.uid, updatedProblems);
+    }
+  };
 
   // Debug function to log difficulty distribution
   useEffect(() => {
@@ -288,9 +341,15 @@ const ProblemList = () => {
                               <td className="fw-bold">{problem.name}</td>
                               <td>{problem.category}</td>
                               <td>
-                                <span className={`badge ${getStatusClass(problem.status)}`}>
-                                  {problem.status || 'Not Started'}
-                                </span>
+                                <select 
+                                  className="form-select form-select-sm"
+                                  value={problem.status || 'Not Started'}
+                                  onChange={(e) => handleStatusUpdate(problem.id, e.target.value)}
+                                >
+                                  <option value="Not Started">Not Started</option>
+                                  <option value="Review">Review</option>
+                                  <option value="Completed">Completed</option>
+                                </select>
                               </td>
                               <td>
                                 {problem.link ? (
@@ -333,9 +392,15 @@ const ProblemList = () => {
                           <td className="fw-bold">{problem.name}</td>
                           <td>{problem.category}</td>
                           <td>
-                            <span className={`badge ${getStatusClass(problem.status)}`}>
-                              {problem.status || 'Not Started'}
-                            </span>
+                            <select 
+                              className="form-select form-select-sm"
+                              value={problem.status || 'Not Started'}
+                              onChange={(e) => handleStatusUpdate(problem.id, e.target.value)}
+                            >
+                              <option value="Not Started">Not Started</option>
+                              <option value="Review">Review</option>
+                              <option value="Completed">Completed</option>
+                            </select>
                           </td>
                           <td>
                             {problem.link ? (

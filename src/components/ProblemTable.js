@@ -20,7 +20,7 @@ const ProblemTable = ({ problems, onUpdateProblem }) => {
     'medium': 'Medium',
     'hard': 'Hard'
   };
-  
+
   // Effect to filter problems when any filter changes
   useEffect(() => {
     let result = [...problems];
@@ -142,7 +142,6 @@ const ProblemTable = ({ problems, onUpdateProblem }) => {
             <tr>
               <th className="d-none d-md-table-cell">Category</th>
               <th>Problem</th>
-              <th>Difficulty</th>
               <th>Link</th>
               <th>Status</th>
               <th>Notes</th>
@@ -155,12 +154,12 @@ const ProblemTable = ({ problems, onUpdateProblem }) => {
                   key={problem.id} 
                   problem={problem}
                   onUpdate={onUpdateProblem}
-                  showDifficultyColumn={true}
+                  showDifficultyColumn={false}
                 />
               ))
             ) : (
               <tr>
-                <td colSpan="6" className="text-center py-4">
+                <td colSpan="5" className="text-center py-4">
                   No problems found matching your filters
                 </td>
               </tr>

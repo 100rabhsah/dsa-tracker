@@ -14,16 +14,6 @@ const ProblemRow = ({ problem, onUpdate, showDifficultyColumn = false }) => {
     return 'status-not-started';
   };
 
-  const getDifficultyLabel = (difficultyClass) => {
-    switch (difficultyClass) {
-      case 'very-easy': return 'Very Easy';
-      case 'easy': return 'Easy';
-      case 'medium': return 'Medium';
-      case 'hard': return 'Hard';
-      default: return 'Medium';
-    }
-  };
-
   const handleStatusChange = (e) => {
     onUpdate({
       ...problem,
@@ -48,22 +38,8 @@ const ProblemRow = ({ problem, onUpdate, showDifficultyColumn = false }) => {
     <tr className={`category-${problem.difficultyClass}`}>
       <td className="d-none d-md-table-cell">
         {problem.category}
-        {!showDifficultyColumn && (
-          <div className="mt-1">
-            <span className={`badge category-badge-${problem.difficultyClass}`}>
-              {getDifficultyLabel(problem.difficultyClass)}
-            </span>
-          </div>
-        )}
       </td>
       <td>{problem.name}</td>
-      {showDifficultyColumn && (
-        <td>
-          <span className={`badge category-badge-${problem.difficultyClass}`}>
-            {getDifficultyLabel(problem.difficultyClass)}
-          </span>
-        </td>
-      )}
       <td>
         {problem.link ? (
           <a href={problem.link} target="_blank" rel="noopener noreferrer">

@@ -170,7 +170,7 @@ const HomePage = () => {
               <div className="hero-image-container">
                 <div className="text-center py-4">
                   <FontAwesomeIcon icon={faLaptopCode} className="fa-5x mb-4 text-primary" />
-                  <h3 className="fw-bold text-dark">Track Your Progress</h3>
+                  <h3 className="fw-bold text-dark">Track karo, crack karo! 🔥</h3>
                   <p className="mb-0 text-muted">Join thousands of developers improving their DSA skills</p>
                 </div>
               </div>
